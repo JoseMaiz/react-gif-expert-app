@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Protypes from 'prop-types';
 
 
 export const AddCategory = ({onNewCategory}) => {
@@ -18,12 +19,12 @@ export const AddCategory = ({onNewCategory}) => {
 
         // *Forma importando una funcion que tenga todo el proceso ya realizado de la actualizacion del estado del useStade "setCategories" del parent component 
         onNewCategory(inputValue.trim());
-
         setInputValue("");
+        
     }
 
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} aria-label='form'>
             <input 
                 type="text" 
                 placeholder="Buscar gifs"
@@ -34,3 +35,7 @@ export const AddCategory = ({onNewCategory}) => {
         </form>
     )
 }
+
+AddCategory.propTypes = {
+    onNewCategory: Protypes.func.isRequired,
+};
